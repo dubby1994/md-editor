@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#FBF8F2" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#16140F" media="(prefers-color-scheme: dark)" />
+
+<title>MDCT — 在线 Markdown 编辑器 · 实时预览</title>
+<meta name="description" content="MDCT 是一款简洁大气的在线 Markdown 编辑器，支持实时预览、大纲导航、三种主题、代码高亮、KaTeX 公式、表格、任务列表，以及导出为 MD/HTML/PDF。数据本地自动保存，无需联网。" />
+<meta name="keywords" content="markdown编辑器,markdown editor,在线markdown,实时预览,markdown转html,md编辑器,MDCT,代码高亮,KaTeX,任务列表" />
+<meta name="author" content="MDCT" />
+<meta name="robots" content="index, follow" />
+<meta name="application-name" content="MDCT" />
+<meta name="apple-mobile-web-app-title" content="MDCT" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="format-detection" content="telephone=no" />
+
+<!-- Open Graph / 社交分享 -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="MDCT" />
+<meta property="og:title" content="MDCT — 在线 Markdown 编辑器" />
+<meta property="og:description" content="简洁大气的在线 Markdown 编辑器，实时预览、大纲导航、代码高亮、KaTeX 公式、三主题，数据本地保存。" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:url" content="" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="MDCT — 在线 Markdown 编辑器" />
+<meta name="twitter:description" content="简洁大气的在线 Markdown 编辑器，实时预览、大纲导航、代码高亮、KaTeX 公式、三主题，数据本地保存。" />
+
+<!-- 图标 -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<link rel="mask-icon" href="favicon.svg" color="#B8451F" />
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "MDCT",
+  "alternateName": "MDCT Markdown Studio",
+  "applicationCategory": "TextEditor",
+  "operatingSystem": "Any (Web Browser)",
+  "description": "一款简洁大气的在线 Markdown 编辑器，支持实时预览、大纲导航、三种主题、代码高亮、KaTeX 公式、表格、任务列表，以及导出为 MD/HTML/PDF。",
+  "inLanguage": ["zh-CN", "en"],
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+  "featureList": [
+    "实时预览与同步滚动",
+    "大纲导航",
+    "三种主题（亮色/羊皮纸/暗色）",
+    "代码语法高亮",
+    "KaTeX 数学公式",
+    "表格与任务列表",
+    "查找替换",
+    "专注模式",
+    "自动保存",
+    "导出 MD/HTML/PDF"
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="vendor/css/fonts.css" />
+<link rel="stylesheet" href="vendor/css/atom-one-dark.min.css" />
+<link rel="stylesheet" href="vendor/css/katex.min.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- SEO: 语义化 H1（视觉隐藏，供爬虫识别应用名） -->
+<h1 class="sr-only">MDCT — 在线 Markdown 编辑器</h1>
+
+<!-- SEO: 爬虫可见的应用简介（视觉隐藏） -->
+<p class="sr-only">MDCT 是一款简洁大气的在线 Markdown 编辑器，支持实时预览、大纲导航、三种主题（亮色/羊皮纸/暗色）、代码语法高亮、KaTeX 数学公式、表格、任务列表、查找替换与专注模式，可导出为 MD/HTML/PDF。所有数据在浏览器本地自动保存，无需注册、无需联网。</p>
+
+<noscript>
+  <div style="max-width:640px;margin:80px auto;padding:32px;font-family:system-ui,sans-serif;color:#1C1A17;text-align:center">
+    <h2 style="font-size:24px;margin-bottom:12px">MDCT 需要 JavaScript 才能运行</h2>
+    <p style="color:#4A463F;line-height:1.6">MDCT 是一款在线 Markdown 编辑器，提供实时预览、代码高亮、数学公式、三主题等功能。请在浏览器设置中启用 JavaScript 后刷新本页。</p>
+  </div>
+</noscript>
+
+<!-- ─────────────────────────────  TOPBAR  ───────────────────────────── -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="22" height="22"><path d="M6 4h14l6 6v18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 4v6h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 16h12M10 20h12M10 24h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+    <div class="brand-text">
+      <span class="brand-name">MDCT</span>
+      <span class="brand-sub">Markdown Studio</span>
+    </div>
+  </div>
+
+  <div class="doc-title">
+    <input id="docTitle" type="text" value="Untitled Document" spellcheck="false" />
+    <span class="save-dot" id="saveDot" title="Saved"></span>
+  </div>
+
+  <div class="topbar-actions">
+    <div class="seg view-modes" role="tablist" aria-label="View mode">
+      <button data-mode="editor" title="Editor only (⌘1)" role="tab"><svg viewBox="0 0 16 16" width="15" height="15"><rect x="2" y="3" width="12" height="2" rx="1" fill="currentColor"/><rect x="2" y="7" width="9" height="2" rx="1" fill="currentColor"/><rect x="2" y="11" width="11" height="2" rx="1" fill="currentColor"/></svg></button>
+      <button data-mode="split" title="Split view (⌘2)" role="tab" class="active"><svg viewBox="0 0 16 16" width="15" height="15"><rect x="2" y="2" width="5" height="12" rx="1" fill="currentColor"/><rect x="9" y="2" width="5" height="12" rx="1" fill="currentColor" opacity="0.4"/></svg></button>
+      <button data-mode="preview" title="Preview only (⌘3)" role="tab"><svg viewBox="0 0 16 16" width="15" height="15"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M1 8h2M13 8h2M8 1v2M8 13v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    </div>
+
+    <button class="icon-btn" id="tocToggle" title="Outline (⌘\\)"><svg viewBox="0 0 16 16" width="16" height="16"><path d="M2 4h12M2 8h9M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+
+    <div class="seg theme-switch" role="group" aria-label="Theme">
+      <button data-theme="light" title="Light"><svg viewBox="0 0 16 16" width="15" height="15"><circle cx="8" cy="8" r="3" fill="currentColor"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+      <button data-theme="sepia" title="Sepia"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" fill="currentColor" opacity="0.5"/><path d="M12 3a6 6 0 0 0 0 10 5 5 0 1 1 0-10z" fill="currentColor"/></svg></button>
+      <button data-theme="dark" title="Dark"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M13 9.5A5.5 5.5 0 0 1 6.5 3a5.5 5.5 0 1 0 6.5 6.5z" fill="currentColor"/></svg></button>
+    </div>
+
+    <div class="menu">
+      <button class="icon-btn" id="openBtn" title="Open file (⌘O)">
+        <svg viewBox="0 0 16 16" width="15" height="15"><path d="M2 5V3a1 1 0 0 1 1-1h3l2 2h5a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M5.5 9.5l2-2 2 2M7.5 7.5v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <span>Open</span>
+      </button>
+    </div>
+
+    <div class="menu">
+      <button class="icon-btn primary" id="exportBtn" title="Export">
+        <svg viewBox="0 0 16 16" width="15" height="15"><path d="M8 1v9M4.5 6.5L8 10l3.5-3.5M2 12v2a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Export</span>
+      </button>
+      <div class="menu-dropdown" id="exportMenu">
+        <button data-export="md">Download .md</button>
+        <button data-export="html">Download .html</button>
+        <button data-export="print">Print / PDF</button>
+        <button data-export="copy">Copy as HTML</button>
+        <div class="menu-sep"></div>
+        <button data-export="new">New document</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─────────────────────────────  TOOLBAR  ───────────────────────────── -->
+<div class="toolbar" id="toolbar">
+  <div class="tool-group">
+    <select id="headingSelect" class="select" title="Heading style">
+      <option value="p">Paragraph</option>
+      <option value="h1">Heading 1</option>
+      <option value="h2">Heading 2</option>
+      <option value="h3">Heading 3</option>
+      <option value="h4">Heading 4</option>
+    </select>
+  </div>
+
+  <span class="tool-sep"></span>
+
+  <div class="tool-group">
+    <button class="tool" data-cmd="bold" title="Bold (⌘B)"><b>B</b></button>
+    <button class="tool" data-cmd="italic" title="Italic (⌘I)"><i>I</i></button>
+    <button class="tool" data-cmd="strike" title="Strikethrough"><s>S</s></button>
+    <button class="tool" data-cmd="mark" title="Highlight"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M2 13l3-3 6-6 2 2-6 6-3 3H2z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></button>
+    <button class="tool" data-cmd="code" title="Inline code"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M5 4L1 8l4 4M11 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+
+  <span class="tool-sep"></span>
+
+  <div class="tool-group">
+    <button class="tool" data-cmd="ul" title="Bullet list"><svg viewBox="0 0 16 16" width="15" height="15"><circle cx="3" cy="4" r="1.2" fill="currentColor"/><circle cx="3" cy="8" r="1.2" fill="currentColor"/><circle cx="3" cy="12" r="1.2" fill="currentColor"/><path d="M7 4h7M7 8h7M7 12h7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <button class="tool" data-cmd="ol" title="Numbered list"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M2 3v2M2.5 3h2M2 6h1.5M2 6v2M2 8h2M5 4h8M5 8h8M5 12h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="tool" data-cmd="task" title="Task list"><svg viewBox="0 0 16 16" width="15" height="15"><rect x="1.5" y="1.5" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3 4.5l1 1 2-2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="1.5" y="9.5" width="6" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M9 4h6M9 12h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></button>
+    <button class="tool" data-cmd="quote" title="Quote"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M2 4v4h3l-1 4M9 4v4h3l-1 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+
+  <span class="tool-sep"></span>
+
+  <div class="tool-group">
+    <button class="tool" data-cmd="link" title="Link (⌘K)"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M6.5 9.5l3-3M5 11l-1 1a2.5 2.5 0 0 1-3.5-3.5L3 6M8 5l1-1a2.5 2.5 0 0 1 3.5 3.5L11 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <button class="tool" data-cmd="image" title="Image"><svg viewBox="0 0 16 16" width="15" height="15"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="5.5" cy="6.5" r="1.2" fill="currentColor"/><path d="M2 12l3.5-3.5L8 11l2.5-2.5L14 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></button>
+    <button class="tool" data-cmd="table" title="Table"><svg viewBox="0 0 16 16" width="15" height="15"><rect x="1.5" y="2.5" width="13" height="11" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1.5 6h13M1.5 10h13M6 2.5v11M10 2.5v11" stroke="currentColor" stroke-width="1.2"/></svg></button>
+    <button class="tool" data-cmd="hr" title="Divider"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="5" cy="8" r="0.8" fill="currentColor"/><circle cx="8" cy="8" r="0.8" fill="currentColor"/><circle cx="11" cy="8" r="0.8" fill="currentColor"/></svg></button>
+  </div>
+
+  <span class="tool-sep"></span>
+
+  <div class="tool-group">
+    <button class="tool" data-cmd="codeblock" title="Code block"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M6 5L2 8l4 3M10 5l4 3-4 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="tool" data-cmd="math" title="Math (KaTeX)"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M2 4h3l1.5 4L8 4l1.5 4L11 4h3M2 12h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>
+    <button class="tool" data-cmd="emoji" title="Emoji"><svg viewBox="0 0 16 16" width="15" height="15"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="5.5" cy="6.5" r="0.8" fill="currentColor"/><circle cx="10.5" cy="6.5" r="0.8" fill="currentColor"/><path d="M5 10a3.5 3.5 0 0 0 6 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+  </div>
+
+  <div class="tool-spacer"></div>
+
+  <div class="tool-group">
+    <button class="tool" data-cmd="undo" title="Undo (⌘Z)"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M3 6h7a4 4 0 1 1 0 8H6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 4L3 6l2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="tool" data-cmd="redo" title="Redo (⌘⇧Z)"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M13 6H6a4 4 0 1 0 0 8h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 4l2 2-2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="tool" data-cmd="find" title="Find & Replace (⌘F)"><svg viewBox="0 0 16 16" width="15" height="15"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    <button class="tool" data-cmd="focus" title="Focus mode (⌘.)"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M2 5V3a1 1 0 0 1 1-1h2M14 5V3a1 1 0 0 0-1-1h-2M2 11v2a1 1 0 0 0 1 1h2M14 11v2a1 1 0 0 1-1 1h-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></button>
+  </div>
+</div>
+
+<!-- ─────────────────────────────  WORKSPACE  ───────────────────────────── -->
+<main class="workspace" id="workspace">
+
+  <!-- TOC sidebar -->
+  <aside class="toc-pane" id="tocPane" aria-label="Document outline">
+    <div class="toc-head">
+      <span>Outline</span>
+      <button class="icon-btn sm" id="tocClose" title="Close"><svg viewBox="0 0 16 16" width="13" height="13"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    </div>
+    <nav class="toc-list" id="tocList"></nav>
+  </aside>
+
+  <!-- Editor -->
+  <section class="editor-pane" id="editorPane">
+    <div class="editor-wrap">
+      <div class="line-numbers" id="lineNumbers" aria-hidden="true"></div>
+      <textarea id="editor" spellcheck="true" autocapitalize="off" placeholder="# Begin your story…"></textarea>
+    </div>
+  </section>
+
+  <!-- Resizer -->
+  <div class="resizer" id="resizer" title="Drag to resize"></div>
+
+  <!-- Preview -->
+  <section class="preview-pane" id="previewPane">
+    <article class="prose" id="preview"></article>
+  </section>
+
+</main>
+
+<!-- ─────────────────────────────  STATUSBAR  ───────────────────────────── -->
+<footer class="statusbar">
+  <div class="status-group">
+    <span id="statWords">0 words</span>
+    <span class="dot">·</span>
+    <span id="statChars">0 chars</span>
+    <span class="dot">·</span>
+    <span id="statReading">0 min read</span>
+  </div>
+  <div class="status-group">
+    <span id="statLines">Ln 1, Col 1</span>
+    <span class="dot">·</span>
+    <span id="statSel">0 selected</span>
+  </div>
+  <div class="status-group">
+    <span class="status-msg" id="statusMsg">Ready</span>
+  </div>
+</footer>
+
+<!-- ─────────────────────────────  FIND BAR  ───────────────────────────── -->
+<div class="findbar" id="findbar" hidden>
+  <div class="find-row">
+    <input type="text" id="findInput" placeholder="Find" spellcheck="false" />
+    <input type="text" id="replaceInput" placeholder="Replace" spellcheck="false" />
+    <span class="find-count" id="findCount">0/0</span>
+    <button class="icon-btn sm" id="findPrev" title="Previous (⇧⏎)"><svg viewBox="0 0 16 16" width="13" height="13"><path d="M3 6l5-3 5 3M3 6v5h10V6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></button>
+    <button class="icon-btn sm" id="findNext" title="Next (⏎)"><svg viewBox="0 0 16 16" width="13" height="13"><path d="M3 10l5 3 5-3M3 10V5h10v5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></button>
+    <button class="icon-btn sm" id="replaceOne" title="Replace"><svg viewBox="0 0 16 16" width="13" height="13"><path d="M2 4l5 5-5 5M9 4h5M9 8h5M9 12h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>
+    <button class="icon-btn sm" id="replaceAll" title="Replace all"><svg viewBox="0 0 16 16" width="13" height="13"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    <button class="icon-btn sm" id="findClose" title="Close (Esc)"><svg viewBox="0 0 16 16" width="13" height="13"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  </div>
+</div>
+
+<!-- ─────────────────────────────  EMOJI PICKER  ───────────────────────────── -->
+<div class="emoji-picker" id="emojiPicker" hidden>
+  <div class="emoji-search"><input type="text" id="emojiSearch" placeholder="Search emoji…" /></div>
+  <div class="emoji-grid" id="emojiGrid"></div>
+</div>
+
+<!-- ─────────────────────────────  TOAST  ───────────────────────────── -->
+<div class="toast" id="toast" hidden></div>
+
+<!-- hidden file input -->
+<input type="file" id="fileInput" accept=".md,.markdown,.mdown,.mkd,.text,.txt,text/markdown,text/plain" hidden />
+
+<script src="vendor/js/marked.min.js"></script>
+<script src="vendor/js/highlight.min.js"></script>
+<script src="vendor/js/katex.min.js"></script>
+<script src="vendor/js/purify.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
