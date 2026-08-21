@@ -1,0 +1,18 @@
+{
+    "name": "MDCT — 在线 Markdown 编辑器",
+    "short_name": "MDCT",
+    "description": "简洁大气的在线 Markdown 编辑器，支持实时预览、大纲导航、三种主题、代码高亮、KaTeX 公式、表格、任务列表，以及导出为 MD/HTML/PDF。数据本地自动保存。",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FBF8F2",
+    "theme_color": "#FBF8F2",
+    "lang": "zh-CN",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}
